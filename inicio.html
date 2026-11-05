@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Científico</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="cuerpo">
+
+    <div class="celebracion"></div>
+    <div class="derrota"></div>
+
+    <audio class="sonido-fiesta" src="./sonidos/fiesta.wav"></audio>
+    <audio class="sonido-perder" src="./sonidos/perder.wav"></audio>
+    <audio id="sonido-misterio" src="./sonidos/misterio.mp3" loop></audio>
+    <audio class="sonido-logro" src="./sonidos/logro.mp3"></audio>
+
+    <img src="./imagenes/fondo.png" alt="Fondo del laboratorio" class="fondo">
+    <section class="pantalla inicio activa">
+        <div class="tarjeta">
+            <h1 class="texto-principal">🔬 Escape Room Científico</h1>
+            <h2 class="subtitulo">El misterio del laboratorio</h2>
+            <p class="texto">¡Bienvenidos al laboratorio!</p>
+            <p class="texto">Algo extraño ocurrió y todas las puertas del laboratorio se cerraron.</p>
+            <p class="texto">Para poder salir tendrán que superar diferentes pruebas de ciencias.</p>
+            <p class="texto-especial">🧪 ¿Están preparados?</p>
+            <div class="inicio-boton">
+                <button class="boton boton-inicio" onclick="comenzar()"> Comenzar </button>
+                <img src="./imagenes/niña.png" alt="Niña saludando" class="nina-saludando">
+            </div>
+        </div>
+    </section>
+
+    <section class="pantalla prueba1">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🦴 Prueba 1</h1>
+            <h2 class="subtitulo">Evolución del ser humano</h2>
+            <img class="imagen" src="./imagenes/evolucion.png" alt="Evolución del ser humano">
+            <p class="pregunta">¿Cuál de estas opciones representa una característica del ser humano actual?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="respuesta1('cola')">A. Tener cola</button>
+                <button class="boton opcion" onclick="respuesta1('cerebro')">B. Mayor desarrollo del cerebro</button>
+                <button class="boton opcion" onclick="respuesta1('branquias')">C. Tener branquias</button>
+                <button class="boton opcion" onclick="respuesta1('alas')">D. Tener alas</button>
+            </div>
+            <p class="pista">🔑 Pista: 4</p>
+            <p class="mensaje mensaje1"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba2">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🧬 Prueba 2</h1>
+            <h2 class="subtitulo">Biomoléculas</h2>
+            <img class="imagen" src="./imagenes/biomoleculas.png" alt="Biomoléculas">
+            <p class="pregunta">¿Cuál de estas opciones es una biomolécula?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="respuesta2('vidrio')">A. Vidrio</button>
+                <button class="boton opcion" onclick="respuesta2('plastico')">B. Plástico</button>
+                <button class="boton opcion" onclick="respuesta2('metal')">C. Metal</button>
+                <button class="boton opcion" onclick="respuesta2('carbohidrato')">D. Carbohidrato</button>
+            </div>
+            <p class="pista">🔑 Pista: 7</p>
+            <p class="mensaje mensaje2"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba3">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">⚗️ Prueba 3</h1>
+            <h2 class="subtitulo">Estados de la materia</h2>
+            <img class="imagen1" src="./imagenes/estados.png" alt="Estados de la materia">
+            <p class="pregunta">¿Cuál es el estado de la materia que tiene forma y volumen definidos?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="respuesta3('liquido')">A. Líquido</button>
+                <button class="boton opcion" onclick="respuesta3('gas')">B. Gas</button>
+                <button class="boton opcion" onclick="respuesta3('solido')">C. Sólido</button>
+                <button class="boton opcion" onclick="respuesta3('plasma')">D. Plasma</button>
+            </div>
+            <p class="pista">🔑 Pista: 2</p>
+            <p class="mensaje mensaje3"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba4">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🔢 Prueba 4</h1>
+            <h2 class="subtitulo">Ecuaciones</h2>
+            <img class="imagen1" src="./imagenes/ecuaciones.png" alt="Ecuación matemática">
+            <p class="pregunta">Resuelve la siguiente ecuación:</p>
+            <p class="formula">x + 5 = 12</p>
+            <p class="texto">¿Cuánto vale x?</p>
+            <input class="entrada entrada4" type="number" placeholder="Escribe tu respuesta">
+            <button class="boton boton-comprobar" onclick="comprobar4()">Comprobar</button>
+            <p class="pista">🔑 Pista: 5</p>
+            <p class="mensaje mensaje4"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba5">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">➗ Prueba 5</h1>
+            <h2 class="subtitulo">Fracciones</h2>
+            <p class="pregunta">Resuelve:</p>
+            <p class="formula">1/2 + 1/4</p>
+            <p class="texto">Escribe la respuesta como fracción.</p>
+            <img class="imagen1" src="./imagenes/fracciones.png" alt="Operaciones con fracciones">
+            <input class="entrada entrada5" type="text" placeholder="Ejemplo: 9/8">
+            <button class="boton boton-comprobar" onclick="comprobar5()">Comprobar</button>
+            <p class="pista">🔑 Pista: 9</p>
+            <p class="mensaje mensaje5"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba6">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🚗 Prueba 6</h1>
+            <h2 class="subtitulo">Movimiento</h2>
+            <img class="imagen1" src="./imagenes/movimiento.png" alt="Movimiento">
+            <p class="pregunta">Un automóvil viaja a 10 m/s durante 5 segundos.</p>
+            <p class="texto">¿Qué distancia recorre?</p>
+            <p class="formula">Distancia = velocidad × tiempo</p>
+            <input class="entrada entrada6" type="number" placeholder="Respuesta en metros">
+            <button class="boton boton-comprobar" onclick="comprobar6()">Comprobar</button>
+            <p class="pista">🔑 Pista: 3</p>
+            <p class="mensaje mensaje6"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba7">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🌎 Prueba 7</h1>
+            <h2 class="subtitulo">Sistema Solar</h2>
+            <img class="imagen1" src="./imagenes/solar.png" alt="Sistema Solar">
+            <p class="pregunta">¿Cuál es el planeta más cercano al Sol?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="respuesta7('venus')">A. Venus</button>
+                <button class="boton opcion" onclick="respuesta7('tierra')">B. Tierra</button>
+                <button class="boton opcion" onclick="respuesta7('mercurio')">C. Mercurio</button>
+                <button class="boton opcion" onclick="respuesta7('marte')">D. Marte</button>
+            </div>
+            <p class="pista">🔑 Pista: 6</p>
+            <p class="mensaje mensaje7"></p>
+        </div>
+    </section>
+
+    <section class="pantalla prueba8">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">⚖️ Prueba 8</h1>
+            <h2 class="subtitulo">Densidad</h2>
+            <img class="imagen1" src="./imagenes/densidad.png" alt="Densidad">
+            <p class="pregunta">Un objeto tiene una masa de 100 g y un volumen de 50 cm³. ¿Cuál es su densidad?</p>
+            <p class="formula">Densidad = masa ÷ volumen</p>
+            <input class="entrada entrada8" type="number" placeholder="g/cm³">
+            <button class="boton boton-comprobar" onclick="comprobar8()">Comprobar</button>
+            <p class="pista">🔑 Última pista: 1</p>
+            <p class="mensaje mensaje8"></p>
+        </div>
+    </section>
+
+    <section class="pantalla codigo">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🔐 Código final</h1>
+            <h2 class="subtitulo">¡Llegaste al final!</h2>
+            <p class="texto">Has conseguido todas las pistas.</p>
+            <p class="texto">Ahora debes unir los números en el orden de las pruebas.</p>
+            <p class="codigo-pistas">7 - 4 - 9 - 3 - 2 - 5 - 1 - 6</p>
+            <p class="pregunta">¿Cuál es el código?</p>
+            <input class="entrada entrada-final" type="text" placeholder="Escribe el código">
+            <button class="boton boton-comprobar" onclick="comprobarFinal()">Abrir puerta 🔓</button>
+            <p class="mensaje mensaje-final"></p>
+        </div>
+    </section>
+
+    <section class="pantalla final">
+        <div class="tarjeta tarjeta-final">
+            <h1 class="texto-final">YA CASI LO LOGRAS</h1>
+            <p class="texto">Has conseguido todas las pistas.</p>
+            <p class="texto">PERO TE FALTA UNA PUERTA PARA LOGRAR ESCAPAR</p>
+            <p class="decoracion">🧪 🧬 🔬 🌎 🚗 ➗</p>
+            <h2 class="texto-final2">🏆 Científico CASI experto 🏆</h2>
+            <button class="boton boton-siguiente" onclick="siguienteNivel()">Siguiente nivel</button>
+        </div>
+    </section>
+    <section class="pantalla nivel2-prueba1">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🦴 Prueba 9</h1>
+            <h2 class="subtitulo">Evolución del ser humano</h2>
+            <img class="imagen" src="./imagenes/evolucion.png" alt="Evolución del ser humano">
+            <p class="pregunta">¿Cuál fue una ventaja importante que permitió a los primeros humanos adaptarse mejor a su entorno?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="nivel2Respuesta1('agua')">A. Poder respirar bajo el agua</button>
+                <button class="boton opcion" onclick="nivel2Respuesta1('piernas')">B. Caminar sobre dos piernas</button>
+                <button class="boton opcion" onclick="nivel2Respuesta1('branquias')">C. Tener branquias</button>
+                <button class="boton opcion" onclick="nivel2Respuesta1('nadar')">D. Nadar muy rápido</button>
+            </div>
+            <p class="pista">🔑 Pista: 2</p>
+            <p class="mensaje nivel2-mensaje1"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba2">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🧬 Prueba 10</h1>
+            <h2 class="subtitulo">Biomoléculas</h2>
+            <img class="imagen" src="./imagenes/biomoleculas.png" alt="Biomoléculas">
+            <p class="pregunta">¿Cuál de estas biomoléculas cumple principalmente una función de almacenamiento de energía?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="nivel2Respuesta2('vidrio')">A. Vidrio</button>
+                <button class="boton opcion" onclick="nivel2Respuesta2('carbohidrato')">B. Carbohidratos</button>
+                <button class="boton opcion" onclick="nivel2Respuesta2('agua')">C. Agua</button>
+                <button class="boton opcion" onclick="nivel2Respuesta2('sales')">D. Sales minerales</button>
+            </div>
+            <p class="pista">🔑 Pista: 6</p>
+            <p class="mensaje nivel2-mensaje2"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba3">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">⚗️ Prueba 11</h1>
+            <h2 class="subtitulo">Estados de la materia</h2>
+            <img class="imagen1" src="./imagenes/estados.png" alt="Estados de la materia">
+            <p class="pregunta">¿Qué ocurre con las partículas de una sustancia cuando pasa de líquido a gas?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="nivel2Respuesta3('acercan')">A. Se acercan más</button>
+                <button class="boton opcion" onclick="nivel2Respuesta3('separan')">B. Se separan y se mueven libremente</button>
+                <button class="boton opcion" onclick="nivel2Respuesta3('juntas')">C. Se mantienen juntas</button>
+                <button class="boton opcion" onclick="nivel2Respuesta3('ionizan')">D. Se ionizan</button>
+            </div>
+            <p class="pista">🔑 Pista: 9</p>
+            <p class="mensaje nivel2-mensaje3"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba4">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🔢 Prueba 12</h1>
+            <h2 class="subtitulo">Ecuaciones</h2>
+            <img class="imagen1" src="./imagenes/ecuaciones.png" alt="Ecuación matemática">
+            <p class="pregunta">Resuelve la siguiente ecuación:</p>
+            <p class="formula">2x + 4 = 14</p>
+            <p class="texto">¿Cuánto vale x?</p>
+            <input class="entrada nivel2-entrada4" type="number" placeholder="Escribe tu respuesta">
+            <button class="boton boton-comprobar" onclick="nivel2Comprobar4()">Comprobar</button>
+            <p class="pista">🔑 Pista: 8</p>
+            <p class="mensaje nivel2-mensaje4"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba5">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">➗ Prueba 13</h1>
+            <h2 class="subtitulo">Fracciones</h2>
+            <p class="pregunta">Resuelve:</p>
+            <p class="formula">2/3 + 1/6</p>
+            <p class="texto">Escribe la respuesta como fracción.</p>
+            <img class="imagen1" src="./imagenes/fracciones.png" alt="Operaciones con fracciones">
+            <input class="entrada nivel2-entrada5" type="text" placeholder="Ejemplo: 9/8">
+            <button class="boton boton-comprobar" onclick="nivel2Comprobar5()">Comprobar</button>
+            <p class="pista">🔑 Pista: 4</p>
+            <p class="mensaje nivel2-mensaje5"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba6">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🚗 Prueba 14</h1>
+            <h2 class="subtitulo">Movimiento</h2>
+            <img class="imagen1" src="./imagenes/movimiento.png" alt="Movimiento">
+            <p class="pregunta">Un ciclista va a 100 m/s durante 20 segundos.</p>
+            <p class="texto">¿Qué distancia recorre?</p>
+            <p class="formula">Distancia = velocidad × tiempo</p>
+            <input class="entrada nivel2-entrada6" type="number" placeholder="Respuesta en metros">
+            <button class="boton boton-comprobar" onclick="nivel2Comprobar6()">Comprobar</button>
+            <p class="pista">🔑 Pista: 3</p>
+            <p class="mensaje nivel2-mensaje6"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba7">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🌎 Prueba 15</h1>
+            <h2 class="subtitulo">Sistema Solar</h2>
+            <img class="imagen1" src="./imagenes/solar.png" alt="Sistema Solar">
+            <p class="pregunta">¿Cuál es el planeta más grande del sistema solar?</p>
+            <div class="opciones">
+                <button class="boton opcion" onclick="nivel2Respuesta7('venus')">A. Venus</button>
+                <button class="boton opcion" onclick="nivel2Respuesta7('tierra')">B. Tierra</button>
+                <button class="boton opcion" onclick="nivel2Respuesta7('jupiter')">C. Júpiter</button>
+                <button class="boton opcion" onclick="nivel2Respuesta7('marte')">D. Marte</button>
+            </div>
+            <p class="pista">🔑 Pista: 5</p>
+            <p class="mensaje nivel2-mensaje7"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-prueba8">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">⚖️ Prueba 16</h1>
+            <h2 class="subtitulo">Densidad</h2>
+            <img class="imagen1" src="./imagenes/densidad.png" alt="Densidad">
+            <p class="pregunta">Un objeto tiene una masa de 80 g y un volumen de 20 cm³. ¿Cuál es su densidad?</p>
+            <p class="formula">Densidad = masa ÷ volumen</p>
+            <input class="entrada nivel2-entrada8" type="number" placeholder="g/cm³">
+            <button class="boton boton-comprobar" onclick="nivel2Comprobar8()">Comprobar</button>
+            <p class="pista">🔑 Última pista: 1</p>
+            <p class="mensaje nivel2-mensaje8"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-codigo">
+        <div class="tarjeta">
+            <h1 class="texto-prueba">🔐 Código final</h1>
+            <h2 class="subtitulo">¡Llegaste al final!</h2>
+            <p class="texto">Has conseguido todas las pistas.</p>
+            <p class="texto">Ahora debes unir los números en el orden de las pistas.</p>
+            <p class="codigo-pistas">2 - 6 - 9 - 8 - 4 - 3 - 5 - 1</p>
+            <p class="pregunta">¿Cuál es el código?</p>
+            <input class="entrada nivel2-entrada-final" type="text" placeholder="Escribe el código">
+            <button class="boton boton-comprobar" onclick="nivel2ComprobarFinal()">Abrir puerta 🔓</button>
+            <p class="mensaje nivel2-mensaje-final"></p>
+        </div>
+    </section>
+
+    <section class="pantalla nivel2-final">
+        <div class="tarjeta tarjeta-final">
+            <h1 class="texto-final">🎉 ¡LOGRASTE ESCAPAR! 🎉</h1>
+            <p class="texto">¡Felicitaciones!</p>
+            <p class="texto">Superaste todos los niveles del Escape Room Científico.</p>
+            <p class="decoracion">🧪 🧬 🔬 🌎 🚗 ➗ 🎉</p>
+            <h2 class="texto-final2">🏆 ¡CIENTÍFICO EXPERTO! 🏆</h2>
+            <button class="boton boton-reiniciar" onclick="location.href='introduccion.html'">Volver a Jugar</button>
+        </div>
+    </section>
+
+    <script src="./juego.js"></script>
+
+</body>
+</html>
