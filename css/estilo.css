@@ -1,0 +1,44 @@
+.cuerpo{
+    display:flex;
+    flex-direction:column;
+    padding: 20px;
+    background: rgba(255, 192, 203, 0.351);
+}
+.titulo-ayuda{
+    text-align:center;
+}
+.titulo-pista{
+    text-align:center;
+}
+.texto-pista {
+    text-align: center;
+    margin:10px;
+    font-size: 20px;
+}
+.texto-ayuda{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+.boton-regresar {
+    width: 300px;
+    height: 20px;
+    background-color: #b1eab3;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top:5px;
+    color: black;
+    border: 2px dashed #00760c;
+    transition: transform 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.boton1 {  
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.boton-regresar:hover {
+    background-color: #92a892;
+     transform: scale(1.1);
+}
